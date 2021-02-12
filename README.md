@@ -1,3 +1,4 @@
+# Это веб интерфейс для rpi-rf  
 # raspberry433
 COPY ALL FILES FROM web FOLDER TO /var/www/html/  
 Скопируйте все файлы из папки web в /var/www/html/  
