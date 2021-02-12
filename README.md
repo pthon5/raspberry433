@@ -25,8 +25,8 @@ exit;
 sudo cp ~/rpi-config /etc/  
 sudo cp ~/rpi-rf.service /lib/systemd/system/  
 sudo systemctl daemon-reload  
-sudo systemctl enable rpi-rf
-sudo systemctl start rpi-rf
+sudo systemctl enable rpi-rf  
+sudo systemctl start rpi-rf  
 sudo mkdir /usr/local/lib/rpi-rf  
 sudo cp ~/rpi-rf_receive /usr/local/lib/rpi-rf/  
 sudo adduser www-data gpio  
