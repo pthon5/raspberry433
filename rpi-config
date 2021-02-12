@@ -6,6 +6,6 @@ send_location = /home/pi/rpi-rf_send
 
 [DB]
 db_name = rpi
-db_user = pthon
-db_pass = 07122002
+db_user = USERNAME
+db_pass = PASSWORD
 db_host = localhost
