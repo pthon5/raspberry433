@@ -1,0 +1,11 @@
+[Settings]
+receiver = 20
+send = 21
+min_code = 5000
+send_location = /home/pi/rpi-rf_send
+
+[DB]
+db_name = rpi
+db_user = pthon
+db_pass = 07122002
+db_host = localhost
