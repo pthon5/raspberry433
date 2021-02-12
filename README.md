@@ -34,4 +34,6 @@ sudo adduser www-data gpio
 # ADD "open_basedir=/YOUR LOCATION OF rpi-rf_send FILE" in /etc/php/7.3/cli/php.ini
 # Добавьте в файл /etc/php/7.3/cli/php.ini строку "open_basedir=/РАСПОЛОЖЕНИЕ ФАЙЛА rpi-rf_send"
 # COPY ALL FILES FROM web FOLDER TO /var/www/html/  
-# Скопируйте все файлы из папки web в /var/www/html/  
+# Скопируйте все файлы из папки web в /var/www/html/   
+# Screenshots  
+![alt text](screenshots/Снимок экрана 2021-02-12 184347.png "Описание будет тут")
