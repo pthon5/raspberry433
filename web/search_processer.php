@@ -2,9 +2,11 @@
 include_once "connectDB.php";
 
 $date1 = $_POST['date1'];
+$time1 = $_POST['time1'];
 $date2 = $_POST['date2'];
+$time2 = $_POST['time2'];
 
-$query = mysqli_query($connect, "SELECT * FROM `rf` WHERE (`date` BETWEEN '".$date1."' AND '".$date2."')");
+$query = mysqli_query($connect, "SELECT * FROM `rf` WHERE (`date` BETWEEN '".$date1."' AND '".$date2."') AND (`time` BETWEEN '".$time1."' AND '".$time2."')");
 
 if ($query->num_rows == 0) {
     die("No info");
