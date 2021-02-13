@@ -91,8 +91,10 @@ include_once "connectDB.php";
     <div class="form-group col-sm">
         <label for="exampleFormControlSelect1" class="col-form-label-lg">Date 1</label>
         <input type="date" name="date1">
+        <input type="time" name="time1">
         <label for="exampleFormControlSelect1" class="col-form-label-lg">Date 2</label>
         <input type="date" name="date2">
+        <input type="time" name="time2">
     </div>
     <button type="submit" class="btn btn-info">Search</button>
 </form>
@@ -146,7 +148,7 @@ $("#sendForm").submit(function(){
         },
         error: function(data, textStatus, xhr) { // Данные не отправлены
             $('#progressBar').hide();
-            $('#result_form').html('Error, idk why.");
+            $('#result_form').html('Error, idk why.');
         }
     });
     return false;
@@ -182,7 +184,7 @@ function sendModal(code, pulse, protocol) {
     codeinp.value=code;
     pulseinp.value=pulse;
     protocolinp.value=protocol;
-    $('#sendModal').modal('show')
+    $('#sendModal').modal('show');
 }
 
 
