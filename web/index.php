@@ -10,6 +10,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
+
 <!--Modal Send-->
 <div class="modal fade" id="sendModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
@@ -150,7 +151,7 @@
             },
             error: function(data, textStatus, xhr) { // Данные не отправлены
                 $('#progressBar').hide();
-                $('#result_form').html('Error, idk why.");
+                $('#result_form').html('Error, idk why.');
             }
         });
         return false;
@@ -172,7 +173,7 @@
     }, 1000);
 
     function openModal() {
-        $('#sendModal').modal('show')
+        $('#sendModal').modal('show');
     }
 
     function sendModal(code, pulse, protocol) {
@@ -186,7 +187,7 @@
         codeinp.value=code;
         pulseinp.value=pulse;
         protocolinp.value=protocol;
-        $('#sendModal').modal('show')
+        $('#sendModal').modal('show');
     }
 
 
