@@ -52,7 +52,7 @@
                 </div>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="closeModal()">Close</button>
 
             </div>
         </div>
@@ -189,6 +189,11 @@
         protocolinp.value=protocol;
         $('#sendModal').modal('show');
     }
+
+    function closeModal() {
+        $('#sendModal').modal('hide');
+    }
+
 
 
 
