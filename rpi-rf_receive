@@ -10,8 +10,8 @@ import pymysql
 import configparser
 import os
 import datetime
-import systemd.daemon
 
+from systemd.daemon import notify, Notification
 from threading import Thread
 from rpi_rf import RFDevice
 
@@ -50,7 +50,7 @@ timestamp = None
 con = pymysql.connect(host=db_host, user=db_user, passwd=db_pass, db=db_name)
 cur = con.cursor()
 #SystemD ready state
-systemd.daemon.notify('READY=1')
+notify(Notification.READY)
 # logging.info("Listening for codes on GPIO " + str(args.gpio))
 while True:
     if rfdevice.rx_code_timestamp != timestamp and rfdevice.rx_code >= int(min_code):
