@@ -47,10 +47,20 @@ rfdevice = RFDevice(args.gpio)
 rfdevice.enable_rx()
 timestamp = None
 #Connection
-con = pymysql.connect(host=db_host, user=db_user, passwd=db_pass, db=db_name)
-cur = con.cursor()
-#SystemD ready state
 notify(Notification.READY)
+con = None
+cur = None
+try:
+    con = pymysql.connect(host=db_host, user=db_user, passwd=db_pass, db=db_name)
+    cur = con.cursor()
+except pymysql.err.OperationalError:
+    print("Can't connect to database.")
+    notify(Notification.STOPPING)
+    exit()
+
+
+#SystemD ready state
+
 # logging.info("Listening for codes on GPIO " + str(args.gpio))
 while True:
     if rfdevice.rx_code_timestamp != timestamp and rfdevice.rx_code >= int(min_code):
@@ -63,10 +73,12 @@ while True:
         minute = datetime.datetime.now().minute
         second = datetime.datetime.now().second
         #DB write
+
         cur.execute(
-            f"INSERT INTO `rf` (`id`, `code`, `pulse`, `protocol`, `date`, `time`) "
-            f"VALUES (NULL, '{rfdevice.rx_code}', '{rfdevice.rx_pulselength}', '{rfdevice.rx_proto}', "
-            f"'{year}-{month}-{day}', '{hour}:{minute}:{second}')")
+        f"INSERT INTO `rf` (`id`, `code`, `pulse`, `protocol`, `date`, `time`) "
+        f"VALUES (NULL, '{rfdevice.rx_code}', '{rfdevice.rx_pulselength}', '{rfdevice.rx_proto}', "
+        f"'{year}-{month}-{day}', '{hour}:{minute}:{second}')")
         con.commit()
+    
     time.sleep(0.01)
 rfdevice.cleanup()
