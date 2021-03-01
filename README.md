@@ -4,7 +4,7 @@
 # Install :  
 sudo apt update  
 sudo apt install python3-pip  
-sudo apt install mariadb-server  
+sudo apt-get install mariadb-server-10.0  
 sudo apt install apache2  
 sudo apt install php  
 sudo apt install php7.3-mysqli  
